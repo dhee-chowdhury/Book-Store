@@ -23,6 +23,12 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
+  if (loading === true)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <Spinner></Spinner>
+      </div>
+    );
   return (
     <div className="p-4">
       <div className="flex justify-between items-center">
@@ -31,9 +37,7 @@ const Home = () => {
           <MdOutlineAddBox className="text-sky-700 text-4xl"></MdOutlineAddBox>
         </Link>
       </div>
-      {loading ? (
-        <Spinner></Spinner>
-      ) : (
+      {
         <table className="w-full border-separate border-spacing-2">
           <thead>
             <tr>
@@ -80,7 +84,7 @@ const Home = () => {
             ))}
           </tbody>
         </table>
-      )}
+      }
     </div>
   );
 };
