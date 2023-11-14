@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
+import { useSnackbar } from "notistack";
 
 const AddBook = () => {
   const [title, setTitle] = useState("");
@@ -10,6 +11,7 @@ const AddBook = () => {
   const [publishYear, setPublishYear] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleAddBook = () => {
     const data = {
@@ -22,12 +24,12 @@ const AddBook = () => {
       .post("http://localhost:5000/books", data)
       .then(() => {
         setLoading(false);
+        enqueueSnackbar("Book added successfully", { variant: "success" });
         navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
-        alert("Something went wrong. try again");
-        console.log(error);
+        enqueueSnackbar("Something went wrong", { variant: "error" });
       });
   };
 

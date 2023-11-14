@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
-import { AiOutlineClose, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
-import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineDelete } from "react-icons/md";
 import { PiBookOpenTextLight } from "react-icons/pi";
-import { Link } from "react-router-dom";
 
 const BookModal = ({ book, onClose }) => {
   return (
