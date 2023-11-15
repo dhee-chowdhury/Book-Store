@@ -21,7 +21,7 @@ const AddBook = () => {
     };
     setLoading(true);
     axios
-      .post("http://localhost:5000/books", data)
+      .post("https://book-store-psi-seven.vercel.app/books", data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book added successfully", {
